@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: update-image-tag-
+  namespace: default
+spec:
+  pipelineRef:
+    name: update-image-tag-pipeline
+  params:
+    - name: repo-url
+      value: "https://github.com/<your_username>/Microk8s.git"
+    - name: image-tag
+      value: "1.20.0"
+

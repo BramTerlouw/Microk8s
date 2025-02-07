@@ -1,0 +1,51 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: clone-and-update-image
+  namespace: default
+spec:
+  params:
+    - name: repo-url
+      type: string
+      description: Git repository URL
+    - name: image-tag
+      type: string
+      description: New image tag to update in the deployment file
+  volumes:
+    - name: git-credentials
+      secret:
+        secretName: git-credentials
+        items:
+          - key: git-username
+            path: git-username
+          - key: git-email
+            path: git-email
+          - key: git-token
+            path: git-token
+  steps:
+    - name: clone-repo
+      image: alpine/git
+      script: |
+        #!/bin/sh
+        git clone $(inputs.params.repo-url) /workspace/git-repo
+
+    - name: update-image-tag
+      image: python:3.8
+      script: |
+        #!/bin/bash
+        cd /workspace/git-repo/application
+        
+        # Find and update the image tag
+        sed -i "s|image: nginx:[^ ]*|image: nginx:$(inputs.params.image-tag)|g" deployment.yaml
+        
+        git config --global user.name "$(cat /workspace/secrets/git-credentials/git-username)"
+        git config --global user.email "$(cat /workspace/secrets/git-credentials/git-email)"
+        git remote set-url origin https://$(cat /workspace/secrets/git-credentials/git-token)@github.com/$(cat /workspace/secrets/git-credentials/git-username)/Microk8s.git        
+        git add deployment.yaml
+        
+        git commit -m "Update image tag to $(inputs.params.image-tag)"
+        git push
+      volumeMounts:
+        - name: git-credentials
+          mountPath: /workspace/secrets/git-credentials
+          readOnly: true

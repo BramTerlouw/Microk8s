@@ -1,0 +1,20 @@
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: update-image-tag-pipeline
+  namespace: default
+spec:
+  params:
+    - name: repo-url
+      type: string
+    - name: image-tag
+      type: string
+  tasks:
+    - name: clone-and-update-image
+      taskRef:
+        name: clone-and-update-image
+      params:
+        - name: repo-url
+          value: $(params.repo-url)
+        - name: image-tag
+          value: $(params.image-tag)

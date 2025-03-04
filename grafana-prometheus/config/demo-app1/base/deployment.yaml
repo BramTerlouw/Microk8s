@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-app-1
+  namespace: demo-app1-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-app-1
+  template:
+    metadata:
+      labels:
+        app: demo-app-1
+    spec:
+      containers:
+      - name: demo-app-1
+        image: localhost:32000/demo-app:latest
+        ports:
+        - containerPort: 5000

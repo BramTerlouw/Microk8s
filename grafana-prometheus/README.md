@@ -62,7 +62,7 @@
 
 3: cd demo-app
 
-4: podman build . -t demo-app
+4: podman build -t demo-app .
 
 5: podman tag demo-app <CONTAINER_ID>32000/demo-app:latest
 
@@ -87,3 +87,6 @@
 
 ## Grafana datasource configuration
 Datasources -> Add datasource -> Select prometheus -> Connection url: http://prometheus.monitoring.svc.cluster.local:9090 -> Save en Test
+Notification template -> Create new template group -> Copy/Paste from "notification_templates.go" -> Save
+Contact point -> Add contact point -> TEAMS integration -> Enter webhook url -> set demo.title and demo.text -> disable resolved message -> Save
+Alert rule -> ...

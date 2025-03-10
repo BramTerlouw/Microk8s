@@ -14,7 +14,16 @@ spec:
         app: demo-app-2
     spec:
       containers:
-      - name: demo-app-2
-        image: localhost:32000/demo-app:latest
-        ports:
-        - containerPort: 5000
+        - name: demo-app-2
+          image: localhost:32000/demo-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: APP_NAME
+              value: "afspraak"
+            - name: APP_VERSION
+              value: "1.2.3"
+        - name: sidecar-exporter
+          image: localhost:32000/exporter:latest
+          ports:
+            - containerPort: 8081

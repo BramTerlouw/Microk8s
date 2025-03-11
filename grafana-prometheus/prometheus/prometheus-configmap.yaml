@@ -16,4 +16,4 @@ data:
           - targets: ["demo-app-1.demo-app1-prod.svc.cluster.local:8080"]
       - job_name: "demo-app2-prod"
         static_configs:
-          - targets: ["demo-app-2.demo-app2-prod.svc.cluster.local:8080"]
+          - targets: ["demo-app-2.demo-app2-prod.svc.cluster.local:8081"]

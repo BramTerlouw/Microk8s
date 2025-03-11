@@ -1,0 +1,12 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: teams-demo
+      receivers:
+        - uid: deffr007dshdse
+          type: teams
+          settings:
+            message: '{{ template "demo.text" . }}'
+            title: '{{ template "demo.title" . }}'
+            url: <<paste_webhook_url_here>>
+          disableResolveMessage: true

@@ -17,6 +17,6 @@ Check:
 {{ if .Labels.name }}  - Check name = {{ .Labels.name }}{{ end }}
 {{ if .Labels.details }}  - Check details = {{ .Labels.details }}{{ end }}
 
-Source: {{.GeneratorURL}}
+{{ if .Labels.application }}Ping page: <<protocol://address/{{.Labels.application}}/ping_page>>{{ end }}
 {{end}}
 {{ end }}

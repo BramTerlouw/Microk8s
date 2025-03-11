@@ -79,10 +79,13 @@
 
 ### Port-forwarding
 1: kubectl port-forward -n kube-system svc/kubernetes-dashboard 10443:443 --address 0.0.0.0 >/dev/null 2>&1 &
+
 2: kubectl port-forward -n monitoring svc/prometheus 9090:9090 >/dev/null 2>&1 &
+
 3: kubectl port-forward -n monitoring svc/grafana 3000:80 >/dev/null 2>&1 &
 
 4: (optional) kubectl port-forward -n demo-app1-prod svc/demo-app-1 8080:8080 (/metrics) or 8080:8081 (/metrics exporter) >/dev/null 2>&1 &
+
 5: (optional) kubectl port-forward -n demo-app1-prod svc/demo-app-2 8081:8080 (/metrics) or 8081:8081 (/metrics exporter) >/dev/null 2>&1 &
 
 ### Navigate to services

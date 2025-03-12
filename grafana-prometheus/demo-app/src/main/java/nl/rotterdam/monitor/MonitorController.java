@@ -18,13 +18,23 @@ public class MonitorController {
 
     @GetMapping(value = "/metrics", produces = MediaType.TEXT_PLAIN_VALUE)
     public String getMetrics() {
+        
+        // In reality, this data comes from the performStatusPing() function
+        // Will look like performStatusPing(request, response, new PrometheusFormatter(true))
+
         String xmlResponse = monitorService.getStatusPingXml();
         return formatter.formatToPrometheus(xmlResponse);
+    
     }
 
     @GetMapping(value = "/statusPing", produces = MediaType.APPLICATION_XML_VALUE)
     public String getStatusPingXml() {
+        
+        // In reality, this data comes from the performStatusPing() function
+        // Looks like performStatusPing(request, response, new MonitorXmlFormatter(true))
+
         return monitorService.getStatusPingXml();
+    
     }
 
     @GetMapping(value = "/set-mode")

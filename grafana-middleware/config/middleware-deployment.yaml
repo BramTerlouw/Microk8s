@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana-teams-middleware
+  namespace: grafana-old
+  labels:
+    app: grafana-teams-middleware
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana-teams-middleware
+  template:
+    metadata:
+      labels:
+        app: grafana-teams-middleware
+    spec:
+      containers:
+        - name: middleware
+          image: localhost:32000/grafana-teams-middleware:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: WEBHOOK_URL
+              value: <<teams_webhook_url>

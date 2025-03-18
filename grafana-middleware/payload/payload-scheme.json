@@ -1,0 +1,66 @@
+{
+    "type": "message",
+    "attachments": [
+        {
+            "contentType": "application/vnd.microsoft.card.adaptive",
+            "content": {
+                "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+                "type": "AdaptiveCard",
+                "version": "1.4",
+                "body": [
+                    {
+                        "type": "TextBlock",
+                        "size": "Large",
+                        "weight": "Bolder",
+                        "color": "%s",
+                        "text": "%s"
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "%s",
+                        "wrap": true
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "Alert Name: %s",
+                        "weight": "Bolder"
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "Instance: %s"
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "Status: %s",
+                        "weight": "Bolder"
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "Started At: %s",
+                        "spacing": "Small"
+                    },
+                    {
+                        "type": "TextBlock",
+                        "text": "%s",
+                        "wrap": true
+                    },
+                    {
+                        "type": "ActionSet",
+                        "actions": [
+                            {
+                                "type": "Action.OpenUrl",
+                                "title": "View Alert in Grafana",
+                                "url": "%s"
+                            },
+                            {
+                                "type": "Action.OpenUrl",
+                                "title": "Silence Alert",
+                                "url": "%s"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+{
+   "receiver":"",
+   "status":"firing",
+   "alerts":[
+      {
+         "status":"firing",
+         "labels":{
+            "alertname":"TestAlert",
+            "instance":"Grafana"
+         },
+         "annotations":{
+            "summary":"Notification test"
+         },
+         "startsAt":"2025-03-18T12:32:31.191934972Z",
+         "endsAt":"0001-01-01T00:00:00Z",
+         "generatorURL":"",
+         "fingerprint":"57c6d9296de2ad39",
+         "silenceURL":"http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=alertname%3DTestAlert&matcher=instance%3DGrafana",
+         "dashboardURL":"",
+         "panelURL":"",
+         "valueString":"[ metric='foo' labels={instance=bar} value=10 ]"
+      }
+   ],
+   "groupLabels":{
+      
+   },
+   "commonLabels":{
+      "alertname":"TestAlert",
+      "instance":"Grafana"
+   },
+   "commonAnnotations":{
+      "summary":"Notification test"
+   },
+   "externalURL":"http://localhost:3000/",
+   "version":"1",
+   "groupKey":"{alertname=\"TestAlert\", instance=\"Grafana\"}2025-03-18 12:32:31.191934972 +0000 UTC m=+1643.392032972",
+   "truncatedAlerts":0,
+   "orgId":1,
+   "title":"[FIRING:1]  (TestAlert Grafana)",
+   "state":"alerting",
+   "message":"**Firing**\n\nValue: [ metric='foo' labels={instance=bar} value=10 ]\nLabels:\n - alertname = TestAlert\n - instance = Grafana\nAnnotations:\n - summary = Notification test\nSilence: http://localhost:3000/alerting/silence/new?alertmanager=grafana&matcher=alertname%3DTestAlert&matcher=instance%3DGrafana\n"
+}

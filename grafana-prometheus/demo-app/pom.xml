@@ -27,7 +27,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<version>3.4.3</version
+			<version>3.4.3</version>
 		</dependency>
 
 		<dependency>
@@ -46,14 +46,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<version>3.4.3</version
+			<version>3.4.3</version>
 		</dependency>
 
 		<dependency>
 			<groupId>jakarta.servlet</groupId>
 			<artifactId>jakarta.servlet-api</artifactId>
 			<scope>provided</scope>
-			<version>6.0.0</version
+			<version>6.0.0</version>
 		</dependency>
 
 	</dependencies>

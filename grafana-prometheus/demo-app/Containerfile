@@ -4,7 +4,7 @@ FROM image-registry.openshift-image-registry.svc:5000/tooling/openliberty-jdk21-
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-RUN mvn clean package -DskipTests -X
+RUN mvn clean package -DskipTests
 
 # Runtime stage
 # FROM eclipse-temurin:21-jre

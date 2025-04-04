@@ -2,6 +2,7 @@
 # FROM maven:3.9-eclipse-temurin-21 AS builder
 FROM image-registry.openshift-image-registry.svc:5000/tooling/openliberty-jdk21-rdm:24.0.0.9-java21 AS builder
 WORKDIR /app
+RUN chmod -R u+w /app
 COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
